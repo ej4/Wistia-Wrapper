@@ -1,0 +1,6 @@
+This project is a wrapper around the API for wistia.com.  
+
+It uses RestSharp and is heavily based on the twilio-csharp project.
+
+https://github.com/restsharp/RestSharp
+https://github.com/twilio/twilio-csharp
