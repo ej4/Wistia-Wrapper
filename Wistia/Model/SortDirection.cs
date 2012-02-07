@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Wistia
 {
-    public class WistiaListBase : WistiaBase
+    public enum SortDirection
     {
-        
-
+        ascending = 1,
+        descending = 0
     }
 }

@@ -12,6 +12,18 @@ namespace Wistia
             return Execute<MediaResult>(request);
         }
 
+        /// <summary>
+        /// List Wistia Medias with filters enabled
+        /// </summary>
+        /// <returns></returns>
+        public MediaResult ListMedias(RequestFilter filter)
+        {
+            var request = new RestRequest();
+            request.Resource = "medias.xml?" + filter.GetFilterString();
+
+            return Execute<MediaResult>(request);
+        }
+
         public MediaResult ListMediasByProject(int projectId)
         {
             var request = new RestRequest();

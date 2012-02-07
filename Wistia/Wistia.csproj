@@ -51,9 +51,11 @@
     <Compile Include="Medias.cs" />
     <Compile Include="Model\Asset.cs" />
     <Compile Include="Model\AssetType.cs" />
+    <Compile Include="Model\RequestFilter.cs" />
     <Compile Include="Model\Media.cs" />
     <Compile Include="Model\MediaResult.cs" />
     <Compile Include="Model\RestException.cs" />
+    <Compile Include="Model\SortDirection.cs" />
     <Compile Include="Model\Stats.cs" />
     <Compile Include="Model\MediaType.cs" />
     <Compile Include="Model\Project.cs" />

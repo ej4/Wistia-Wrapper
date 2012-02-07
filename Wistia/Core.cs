@@ -15,6 +15,10 @@ namespace Wistia
         public string ApiVersion { get; set; }
         public string BaseUrl { get; set; }
         private string ApiUsername { get; set; }
+
+        /// <summary>
+        /// ApiPasswird
+        /// </summary>
         private string ApiPassword { get; set; }
 
         private RestClient _client;
@@ -36,7 +40,18 @@ namespace Wistia
         {
             request.OnBeforeDeserialization = (resp) =>
             {
-                       
+                // for individual resources when there's an error to make
+                // sure that RestException props are populated
+                if (((int)resp.StatusCode) >= 400)
+                {
+                    // have to read the bytes so .Content doesn't get populated
+                    var content = resp.RawBytes.AsString();
+                    var json = JObject.Parse(content);
+                    var newJson = new JObject();
+                    newJson["RestException"] = json;
+                    resp.Content = null;
+                    resp.RawBytes = Encoding.UTF8.GetBytes(newJson.ToString());
+                }
             };
 
        
@@ -45,8 +60,8 @@ namespace Wistia
         }
 
         public RestResponse Execute(RestRequest request)
-		{
-			return _client.Execute(request);
-		}
+        {
+            return _client.Execute(request);
+        }
     }
 }
