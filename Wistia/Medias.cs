@@ -4,6 +4,10 @@ namespace Wistia
 {
     public partial class WistiaRestClient
     {
+        /// <summary>
+        /// List all Wistia Medias
+        /// </summary>
+        /// <returns></returns>
         public MediaResult ListMedias()
         {
             var request = new RestRequest();
@@ -24,10 +28,26 @@ namespace Wistia
             return Execute<MediaResult>(request);
         }
 
+        /// <summary>
+        /// List Wistia Medias for specified Project
+        /// </summary>
+        /// <returns></returns>
         public MediaResult ListMediasByProject(int projectId)
         {
             var request = new RestRequest();
             request.Resource = string.Format("medias.xml?project_id={0}", projectId);
+
+            return Execute<MediaResult>(request);
+        }
+
+        /// <summary>
+        /// List Wistia Medias for specified Project with filters enabled
+        /// </summary>
+        /// <returns></returns>
+        public MediaResult ListMediasByProject(int projectId, RequestFilter filter)
+        {
+            var request = new RestRequest();
+            request.Resource = string.Format("medias.xml?project_id={0}&{1}", projectId, filter.GetFilterString());
 
             return Execute<MediaResult>(request);
         }
