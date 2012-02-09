@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Wistia
 {
-    public class ProjectResult
+    public class ProjectResult : WistiaListBase
     {
         public List<Project> Projects { get; set; }
     }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Wistia
 {
-    public class Stats
+    public class Stats : WistiaBase
     {
         public int PageLoads { get; set; }
         public int Visitors { get; set; }

@@ -5,8 +5,9 @@ using System.Text;
 
 namespace Wistia
 {
-    public class MediaResult : WistiaListBase
+    public class SharingResult : WistiaListBase
     {
-        public List<Media> Medias { get; set; }
+        public List<Sharing> Sharings { get; set; }
     }
 }
+

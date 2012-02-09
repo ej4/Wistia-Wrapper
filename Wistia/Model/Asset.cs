@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Wistia
 {
-    public class Asset
+    public class Asset : WistiaBase
     {
         public string Url { get; set; }
         public int Width { get; set; }
